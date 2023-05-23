@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nail Art Design Game</title>
+  <style>
+    /* Add some basic styling for the game */
+    .nail {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ff69b4;
+      display: inline-block;
+      margin: 5px;
+      cursor: pointer;
+    }
+    
+    .canvas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nail Art Design Game</h1>
+  <p>Click on the nails to create your own nail art design!</p>
+  <div class="canvas"></div>
+  
+  <script>
+    // Function to handle the nail click event
+    function handleNailClick() {
+      // Toggle the color of the clicked nail
+      this.style.backgroundColor = this.style.backgroundColor === 'red' ? '#ff69b4' : 'red';
+    }
+    
+    // Create nails on the canvas
+    function createNails() {
+      const canvas = document.querySelector('.canvas');
+      
+      for (let i = 0; i < 100; i++) {
+        const nail = document.createElement('div');
+        nail.classList.add('nail');
+        nail.addEventListener('click', handleNailClick);
+        canvas.appendChild(nail);
+      }
+    }
+    
+    // Call the function to create nails
+    createNails();
+  </script>
+</body>
+</html>
